@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="871.0" styleClass="body" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personal.converter.controllers.CoinsViewController">
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Monedas">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/coins-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="MS Reference Sans Serif" size="14.0" />
+               </font></Button>
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Temperatura" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/temp-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Longitud" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/rule-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="360.0" prefWidth="619.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefWidth="140.0" text="Conversor de temperatura" />
+            <HBox alignment="CENTER" prefHeight="167.0" prefWidth="772.0" spacing="10.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" maxHeight="200.0" maxWidth="300.0" minWidth="100.0" prefHeight="150.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="83.0" styleClass="conv-labels" text="Cantidad" />
+                        <HBox fx:id="textInputContainer" alignment="CENTER_LEFT" maxHeight="40.0" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" styleClass="input__container" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="symbolLabel" styleClass="conv-labels" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="textInput" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="300.0" styleClass="input__text" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="265.0" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="300.0" minWidth="100.0" prefHeight="200.0" prefWidth="150.0" style="-fx-background-radius: 100px;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="33.0" styleClass="conv-labels" text="De" />
+                        <ComboBox fx:id="fromCurrency" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="150.0" styleClass="select" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="17.0" />
+                           </VBox.margin></ComboBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" maxWidth="40.0" minWidth="40.0" prefHeight="200.0" prefWidth="40.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="61.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button maxWidth="50.0" minWidth="40.0" mnemonicParsing="false" onAction="#swap" prefHeight="35.0" prefWidth="50.0" styleClass="swap-btn">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/swap-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="17.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="210.0" layoutY="10.0" maxWidth="300.0" minWidth="100.0" prefHeight="200.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="10.0" styleClass="conv-labels" text="a" />
+                        <ComboBox fx:id="toCurrency" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="150.0" styleClass="select">
+                           <VBox.margin>
+                              <Insets bottom="17.0" />
+                           </VBox.margin></ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="64.0" prefWidth="772.0">
+               <children>
+                  <Button fx:id="convertBtn" maxHeight="35.0" maxWidth="150.0" minWidth="100.0" mnemonicParsing="false" onAction="#convert" prefHeight="35.0" prefWidth="150.0" styleClass="conv-btn" text="Convertir" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="253.0" prefHeight="73.0" prefWidth="521.0" spacing="10.0">
+               <children>
+                  <Label fx:id="result" alignment="CENTER" prefHeight="17.0" prefWidth="802.0" styleClass="result-label" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="equivalence" alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="791.0" styleClass="equivalence-label" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
