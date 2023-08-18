@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Controller {
@@ -36,25 +37,24 @@ public class Controller {
     private Converter converter;
 
     //configuration for the combo boxes
-    public void setOptions(ArrayList<Measurement> options){
-        fromOptions.getItems().addAll(options);
-        fromOptions.setOnAction(this::setFromOptions);
-        toOptions.getItems().addAll(options);
-        toOptions.setOnAction(this::setToOptions);
+    private void setOptions(ComboBox<Measurement>comboBox ,ArrayList<Measurement> opts ){
+        comboBox.getItems().addAll(opts);
+        comboBox.setCellFactory(param -> this.createListCell());
+        comboBox.setButtonCell(this.createListCell());
     }
-
-    public void setOptionsWithImg(ArrayList<Measurement> options){
-        this.setOptions(options);
-        fromOptions.setCellFactory(param -> this.createListCell());
-        fromOptions.setButtonCell(this.createListCell());
-        toOptions.setCellFactory(param -> createListCell());
-        toOptions.setButtonCell(createListCell());
+    private void prepareComboBoxes(ArrayList<Measurement> options){
+        this.setOptions(fromOptions,options);
+        this.setOptions(toOptions,options);
+        toOptions.setOnAction(this::setToOptions);
+        fromOptions.setOnAction(this::setFromOptions);
     }
 
     public void initComponents(ArrayList<Measurement> options){
+        this.prepareComboBoxes(options);
         convertBtn.setDisable(true);
         fromOptions.setValue(options.get(0));
         toOptions.setValue(options.get(0));
+        symbolLabel.setText(options.get(0).getSymbol());
     }
 
     public void setConverter(Converter converter){
@@ -81,11 +81,10 @@ public class Controller {
         //if the user wrote an input in the text field set the value of inputCoin
         if (!textInput.getText().equals("")) {
             //gets the value in the textInput and parses it to double
-            try{
+            try {
                 double inputValue = Double.parseDouble(textInput.getText());
                 converter.getInput().setValue(inputValue);
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
                 converter.getInput().setValue(0);
             }
@@ -110,7 +109,7 @@ public class Controller {
     public void setFromOptions(ActionEvent event){
         this.setOptionToConverter(fromOptions.getValue(), converter.getInput());
         //adds to the label the corresponding currency symbol
-        symbolLabel.setText(Character.toString(converter.getInput().getSymbol()));
+        symbolLabel.setText(converter.getInput().getSymbol());
     }
 
     public void setToOptions(ActionEvent event){
@@ -138,19 +137,31 @@ public class Controller {
 
     }
 
-    private void goToAnotherScene(String viewPath, ActionEvent event) throws IOException{
-        Parent newRoot = FXMLLoader.load(Main.class.getResource("views/" + viewPath));
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene newScene = new Scene(newRoot);
-        String css = getClass().getResource("views/styles.css").toExternalForm();
+    private void goToAnotherScene(String viewPath, ActionEvent event){
+        try {
+            Parent newRoot = FXMLLoader.load(Main.class.getResource("views/" + viewPath));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(newRoot);
+            String css = Main.class.getResource("views/styles.css").toExternalForm();
 
-        newScene.getStylesheets().add(css);
-        currentStage.setScene(newScene);
-        currentStage.show();
+            newScene.getStylesheets().add(css);
+            currentStage.setScene(newScene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void goToTemperature(ActionEvent event) throws IOException{
+    public void goToTemperature(ActionEvent event){
         this.goToAnotherScene("temperature-view.fxml", event);
+    }
+
+    public void goToLength(ActionEvent event){
+        this.goToAnotherScene("length-view.fxml", event);
+    }
+
+    public void goToCoins(ActionEvent event){
+        this.goToAnotherScene("coins-view.fxml",event);
     }
 
 
@@ -167,7 +178,7 @@ public class Controller {
     //Method to add text and an Image to an option of a combo box
     private static void setComboBoxItem(ListCell<Measurement> listCell, Measurement item,
                                         boolean empty){
-        ImageView imageView = new ImageView();
+
         HBox hBox = new HBox(0);
         if (empty || item == null) {
             listCell.setGraphic(null);
@@ -183,12 +194,17 @@ public class Controller {
             labelName.setText(item.getName());
             labelName.setStyle("-fx-text-fill:#667a91;");
 
-            imageView.setImage(new Image(
-                Main.class.getResourceAsStream("assets/img/" + item.getImgPath())));
-            imageView.setFitHeight(32);
-            imageView.setFitWidth(32);
+            if (!item.getImgPath().equals("")) {
+                ImageView imageView = new ImageView();
+                imageView.setImage(new Image(Objects.requireNonNull(
+                    Main.class.getResourceAsStream("assets/img/" + item.getImgPath()))));
+                imageView.setFitHeight(32);
+                imageView.setFitWidth(32);
+                hBox.getChildren().addAll(labelKey, labelName, imageView);
+            } else {
+                hBox.getChildren().addAll(labelKey, labelName);
+            }
             hBox.setAlignment(Pos.CENTER_LEFT);
-            hBox.getChildren().addAll(labelKey, labelName, imageView);
             listCell.setGraphic(hBox);
         }
     }

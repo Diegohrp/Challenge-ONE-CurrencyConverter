@@ -15,7 +15,6 @@ public class CoinsViewController extends Controller implements Initializable {
     @Override public void initialize(URL location, ResourceBundle resources){
         ArrayList<Measurement> coinsOptions = new ArrayList<>();
         Arrays.stream(Coins.values()).forEach(c -> coinsOptions.add(c.getObjFromEnum()));
-        this.setOptionsWithImg(coinsOptions);
         this.initComponents(coinsOptions);
         this.getTextInput().textProperty().addListener(
             (observable, oldValue, newValue) -> {

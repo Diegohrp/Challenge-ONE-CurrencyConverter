@@ -2,7 +2,7 @@ package com.personal.converter.models;
 
 public class Measurement {
     private String id;
-    private char symbol;
+    private String symbol;
     private String name;
     private double value;
     private String imgPath;
@@ -11,14 +11,14 @@ public class Measurement {
 
     }
 
-    public Measurement(String id,char symbol, String name, String imgPath){
+    public Measurement(String id, String symbol, String name, String imgPath){
         this.id = id;
         this.symbol = symbol;
         this.name = name;
         this.imgPath = imgPath;
     }
 
-    public Measurement(String id,char symbol, String name){
+    public Measurement(String id, String symbol, String name){
         this.id = id;
         this.symbol = symbol;
         this.name = name;
@@ -52,11 +52,11 @@ public class Measurement {
         return imgPath;
     }
 
-    public char getSymbol(){
+    public String getSymbol(){
         return symbol;
     }
 
-    public void setSymbol(char symbol){
+    public void setSymbol(String symbol){
         this.symbol = symbol;
     }
 }

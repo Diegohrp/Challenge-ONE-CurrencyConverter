@@ -8,7 +8,7 @@ public class Converter {
 
     private double equivalence;
 
-    Converter(String id,char symbol, String name){
+    Converter(String id,String symbol, String name){
         this.input = new Measurement(id,symbol,name);
         this.output = new Measurement(id,symbol,name);
     }

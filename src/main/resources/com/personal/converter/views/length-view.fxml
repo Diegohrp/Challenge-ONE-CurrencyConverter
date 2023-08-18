@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="871.0" styleClass="body" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personal.converter.controllers.CoinsViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="871.0" styleClass="body" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personal.converter.controllers.LengthViewController">
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -46,7 +46,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" onAction="#goToLength" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Longitud" GridPane.columnIndex="2">
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Longitud" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,11 +64,14 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxHeight="200.0" maxWidth="300.0" minWidth="100.0" prefHeight="150.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="83.0" styleClass="conv-labels" text="Cantidad" />
+                        <Label prefHeight="17.0" prefWidth="83.0" styleClass="conv-labels" text="Distancia" />
                         <HBox fx:id="textInputContainer" alignment="CENTER_LEFT" maxHeight="40.0" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" styleClass="input__container" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="symbolLabel" styleClass="conv-labels" HBox.hgrow="ALWAYS" />
                               <TextField fx:id="textInput" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="300.0" styleClass="input__text" />
+                              <Label fx:id="symbolLabel" alignment="CENTER" minWidth="20.0" prefWidth="20.0" styleClass="conv-labels" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="3.0" />
+                                 </HBox.margin></Label>
                            </children>
                         </HBox>
                         <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="265.0" textFill="RED" />
