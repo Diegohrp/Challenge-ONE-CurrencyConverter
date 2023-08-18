@@ -1,33 +1,30 @@
 package com.personal.converter.models;
 
-import com.personal.converter.enums.Coins;
 
-public class Converter {
-    private final Measurement input;
-    private final Measurement output;
+public abstract class Converter {
+    private Measurement input;
+    private Measurement output;
 
     private double equivalence;
 
-    Converter(String id,String symbol, String name){
-        this.input = new Measurement(id,symbol,name);
-        this.output = new Measurement(id,symbol,name);
+
+    public abstract String getEquivalenceMsg();
+
+    public abstract String getResultMsg();
+
+    public abstract void setEquivalence(String from, String to);
+
+    public void setEquivalence(double value){
+        this.equivalence = value;
     }
+
     public void convert(){
         this.output.setValue(this.input.getValue() * this.equivalence);
     }
 
-    public String getEquivalenceMsg(){
-        return this.getInput().getSymbol()+" 1 "+
-            this.getInput().getId()+" = "+ this.getOutput().getSymbol()+
-            " "+this.getEquivalence()+ " "+this.getOutput().getId();
-    }
-
-    public String getResultMsg(){
-        return Double.toString(this.getOutput().getValue());
-    }
-
-    public void setEquivalence(Coins from, String to){
-        this.equivalence = from.getEquivalence(to);
+    public void initInOut(Measurement m){
+        this.input = new Measurement(m.getId(), m.getSymbol(), m.getId());
+        this.output = new Measurement(m.getId(), m.getSymbol(), m.getId());
     }
 
     public Measurement getInput(){

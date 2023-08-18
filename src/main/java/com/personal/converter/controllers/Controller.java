@@ -2,8 +2,10 @@ package com.personal.converter.controllers;
 
 import com.personal.converter.Main;
 import com.personal.converter.enums.Coins;
+import com.personal.converter.interfaces.Enumerable;
 import com.personal.converter.models.Converter;
 import com.personal.converter.models.Measurement;
+import com.personal.converter.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,14 +39,15 @@ public class Controller {
     private Converter converter;
 
     //configuration for the combo boxes
-    private void setOptions(ComboBox<Measurement>comboBox ,ArrayList<Measurement> opts ){
+    private void setOptions(ComboBox<Measurement> comboBox, ArrayList<Measurement> opts){
         comboBox.getItems().addAll(opts);
         comboBox.setCellFactory(param -> this.createListCell());
         comboBox.setButtonCell(this.createListCell());
     }
+
     private void prepareComboBoxes(ArrayList<Measurement> options){
-        this.setOptions(fromOptions,options);
-        this.setOptions(toOptions,options);
+        this.setOptions(fromOptions, options);
+        this.setOptions(toOptions, options);
         toOptions.setOnAction(this::setToOptions);
         fromOptions.setOnAction(this::setFromOptions);
     }
@@ -79,12 +82,13 @@ public class Controller {
 
     private void setInputValue(){
         //if the user wrote an input in the text field set the value of inputCoin
-        if (!textInput.getText().equals("")) {
+        if (!textInput.getText().equals("") && textInput.getText().length() < 12) {
             //gets the value in the textInput and parses it to double
             try {
                 double inputValue = Double.parseDouble(textInput.getText());
                 converter.getInput().setValue(inputValue);
             } catch (NumberFormatException e) {
+                //if the user doesn't write a number
                 System.out.println(e.getMessage());
                 converter.getInput().setValue(0);
             }
@@ -119,7 +123,7 @@ public class Controller {
     public void convert(){
         this.setInputValue();
         //looks for the equivalence in the enum and sets it to the converter
-        converter.setEquivalence(Coins.valueOf(converter.getInput().getId()),
+        converter.setEquivalence(converter.getInput().getId(),
             converter.getOutput().getId());
         converter.convert();
         result.setText(converter.getResultMsg());
@@ -161,7 +165,7 @@ public class Controller {
     }
 
     public void goToCoins(ActionEvent event){
-        this.goToAnotherScene("coins-view.fxml",event);
+        this.goToAnotherScene("coins-view.fxml", event);
     }
 
 

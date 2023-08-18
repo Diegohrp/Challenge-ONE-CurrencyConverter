@@ -9,6 +9,7 @@ module com.personal.converter {
     exports com.personal.converter.controllers;
     exports com.personal.converter.models;
     exports com.personal.converter.enums;
+    exports com.personal.converter.utils;
     exports com.personal.converter.interfaces;
 
 }

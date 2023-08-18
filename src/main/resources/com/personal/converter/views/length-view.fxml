@@ -68,7 +68,7 @@
                         <HBox fx:id="textInputContainer" alignment="CENTER_LEFT" maxHeight="40.0" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" styleClass="input__container" VBox.vgrow="ALWAYS">
                            <children>
                               <TextField fx:id="textInput" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="300.0" styleClass="input__text" />
-                              <Label fx:id="symbolLabel" alignment="CENTER" minWidth="20.0" prefWidth="20.0" styleClass="conv-labels" HBox.hgrow="ALWAYS">
+                              <Label fx:id="symbolLabel" alignment="CENTER" minWidth="25.0" prefWidth="25.0" styleClass="conv-labels" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="3.0" />
                                  </HBox.margin></Label>
