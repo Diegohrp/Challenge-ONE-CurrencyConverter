@@ -1,4 +1,4 @@
-package com.personal.converter.models;
+package com.personal.converter.models.generals;
 
 public abstract class Converter {
     private Measurement input;

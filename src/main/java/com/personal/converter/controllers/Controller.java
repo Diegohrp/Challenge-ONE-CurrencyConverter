@@ -1,37 +1,17 @@
 package com.personal.converter.controllers;
 
-import com.personal.converter.Main;
-import com.personal.converter.enums.Coins;
-import com.personal.converter.enums.Lengths;
+
 import com.personal.converter.enums.Temperatures;
 import com.personal.converter.interfaces.Enumerable;
-import com.personal.converter.models.CoinsConverter;
-import com.personal.converter.models.Converter;
-import com.personal.converter.models.Measurement;
-import com.personal.converter.models.TemperatureConverter;
+import com.personal.converter.models.generals.Converter;
+import com.personal.converter.models.generals.Measurement;
 import com.personal.converter.utils.GUIFeatures;
 import com.personal.converter.utils.Utils;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
 
 public class Controller {
@@ -82,7 +62,6 @@ public class Controller {
             } else {
                 isValid = Utils.validatePositiveDecimal(newValue);
             }
-            System.out.println(isValid);
             GUIFeatures.validateTextField(isValid, this.errorLabel,
                 this.textInputContainer, this.convertBtn);
         });
@@ -156,40 +135,20 @@ public class Controller {
         toOptions.setValue(aux);
 
         //this happens when there's a value in the text field and the swap button was clicked
-        if (!textInput.getText().equals("")) {
-            this.convert();
-        } else {
-            System.out.println("Ta vacío");
-        }
+        if (!textInput.getText().equals("")) this.convert();
 
-
-    }
-
-    private void goToAnotherScene(String viewPath, ActionEvent event){
-        try {
-            Parent newRoot = FXMLLoader.load(Main.class.getResource("views/" + viewPath));
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene newScene = new Scene(newRoot);
-            String css = Main.class.getResource("views/styles.css").toExternalForm();
-
-            newScene.getStylesheets().add(css);
-            currentStage.setScene(newScene);
-            currentStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void goToTemperature(ActionEvent event){
 
-        this.goToAnotherScene("temperature-view.fxml", event);
+        GUIFeatures.goToScene("temperature-view.fxml", event);
     }
 
     public void goToLength(ActionEvent event){
-        this.goToAnotherScene("length-view.fxml", event);
+        GUIFeatures.goToScene("length-view.fxml", event);
     }
 
     public void goToCoins(ActionEvent event){
-        this.goToAnotherScene("coins-view.fxml", event);
+        GUIFeatures.goToScene("coins-view.fxml", event);
     }
 }

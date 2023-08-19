@@ -1,17 +1,20 @@
 package com.personal.converter.models;
 
 import com.personal.converter.enums.Temperatures;
+import com.personal.converter.models.generals.Converter;
+import com.personal.converter.utils.Utils;
 
 public class TemperatureConverter extends Converter {
-    @Override
-    public String getEquivalenceMsg(){
+    @Override public String getEquivalenceMsg(){
         return "";
     }
 
     @Override
     public String getResultMsg(){
-        return this.getInput().getValue() + " " + this.getInput().getSymbol() + " = " +
-            this.getOutput().getValue() + " " + this.getOutput().getSymbol();
+        return Utils.formatDouble(this.getInput().getValue(), 2) + " " +
+            this.getInput().getSymbol() + " = " +
+            Utils.formatDouble(this.getOutput().getValue(), 2) + " " +
+            this.getOutput().getSymbol();
     }
 
     @Override

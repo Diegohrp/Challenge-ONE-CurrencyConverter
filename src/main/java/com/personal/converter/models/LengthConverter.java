@@ -1,6 +1,7 @@
 package com.personal.converter.models;
 
 import com.personal.converter.enums.Lengths;
+import com.personal.converter.models.generals.Converter;
 import com.personal.converter.utils.Utils;
 
 public class LengthConverter extends Converter {
@@ -13,9 +14,9 @@ public class LengthConverter extends Converter {
 
     @Override
     public String getResultMsg(){
-        return Utils.formatDouble(this.getInput().getValue(), 4) + " " +
+        return Utils.formatDouble(this.getInput().getValue(), 2) + " " +
             this.getInput().getId() + " = " + " " +
-            Utils.formatDouble(this.getOutput().getValue(), 4) + " " +
+            Utils.formatDouble(this.getOutput().getValue(), 2) + " " +
             this.getOutput().getId();
     }
 

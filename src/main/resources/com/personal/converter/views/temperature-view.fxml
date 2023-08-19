@@ -27,7 +27,7 @@
           <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Monedas">
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" onAction="#goToCoins" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Monedas">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -38,7 +38,7 @@
                <font>
                   <Font name="MS Reference Sans Serif" size="14.0" />
                </font></Button>
-            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Temperatura" GridPane.columnIndex="1">
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: f0f5fa; -fx-border-color: f0f5fa;" styleClass="menu-button" text="Temperatura" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,7 +46,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Longitud" GridPane.columnIndex="2">
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" onAction="#goToLength" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Longitud" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,7 +64,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxHeight="200.0" maxWidth="300.0" minWidth="100.0" prefHeight="150.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="83.0" styleClass="conv-labels" text="Temperatura" />
+                        <Label prefHeight="17.0" prefWidth="232.0" styleClass="conv-labels" text="Temperatura" />
                         <HBox fx:id="textInputContainer" alignment="CENTER_LEFT" maxHeight="40.0" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" styleClass="input__container" VBox.vgrow="ALWAYS">
                            <children>
                               <TextField fx:id="textInput" maxWidth="300.0" minWidth="100.0" prefHeight="35.0" prefWidth="300.0" styleClass="input__text" />

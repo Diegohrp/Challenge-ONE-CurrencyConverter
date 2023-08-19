@@ -1,6 +1,6 @@
 package com.personal.converter.interfaces;
 
-import com.personal.converter.models.Measurement;
+import com.personal.converter.models.generals.Measurement;
 
 public interface Enumerable {
 

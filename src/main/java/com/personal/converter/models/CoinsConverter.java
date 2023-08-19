@@ -1,6 +1,7 @@
 package com.personal.converter.models;
 
 import com.personal.converter.enums.Coins;
+import com.personal.converter.models.generals.Converter;
 import com.personal.converter.utils.Utils;
 
 public class CoinsConverter extends Converter {

@@ -27,7 +27,7 @@
           <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" styleClass="menu-button" text="Monedas">
+            <Button maxHeight="1.7976931348623157E308" minHeight="46.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: f0f5fa; -fx-border-color: f0f5fa;" styleClass="menu-button" text="Monedas">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>

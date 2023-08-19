@@ -1,7 +1,7 @@
 package com.personal.converter.enums;
 
 import com.personal.converter.interfaces.Enumerable;
-import com.personal.converter.models.Measurement;
+import com.personal.converter.models.generals.Measurement;
 import java.util.HashMap;
 import java.util.function.DoubleUnaryOperator;
 

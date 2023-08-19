@@ -1,15 +1,22 @@
 package com.personal.converter.utils;
 
 import com.personal.converter.Main;
-import com.personal.converter.models.Measurement;
+import com.personal.converter.models.generals.Measurement;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class GUIFeatures {
@@ -67,6 +74,21 @@ public class GUIFeatures {
             errorLabel.setText("Introduce un número válido");
             textContainer.setStyle("-fx-border-color:red;");
             convertBtn.setDisable(true);
+        }
+    }
+
+    public static void goToScene(String viewName, ActionEvent event){
+        try {
+            Parent newRoot = FXMLLoader.load(Main.class.getResource("views/" + viewName));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(newRoot);
+            String css = Main.class.getResource("views/styles.css").toExternalForm();
+
+            newScene.getStylesheets().add(css);
+            currentStage.setScene(newScene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

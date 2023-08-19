@@ -1,8 +1,9 @@
+
 .body{
     -fx-background-color: white;
 }
 .menu-button{
-    -fx-background-color: #f0f5fa;
+    -fx-background-color: white;
     -fx-border-color: white;
     -fx-text-fill:#0071eb;
     -fx-margin: 10px 0 0 0;
