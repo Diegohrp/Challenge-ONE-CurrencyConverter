@@ -31,7 +31,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/coins-icon.png" />
+                        <Image url="@../assets/icons/coins-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,7 +42,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/temp-icon.png" />
+                        <Image url="@../assets/icons/temp-icon.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -50,7 +50,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/rule-icon.png" />
+                        <Image url="@../assets/icons/rule-icon.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -94,7 +94,7 @@
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/swap-icon.png" />
+                                    <Image url="@../assets/icons/swap-icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>

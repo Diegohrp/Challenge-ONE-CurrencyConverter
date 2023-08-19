@@ -8,7 +8,7 @@ import java.util.HashMap;
 public enum Coins implements Enumerable {
 
     MXN(new Measurement("MXN", "$", "Peso Mexicano", "mx.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 1.0);
             put("EUR", 0.054);
             put("USD", 0.059);
@@ -16,7 +16,7 @@ public enum Coins implements Enumerable {
             put("JPY", 8.51);
             put("KRW", 78.23);
         }}), EUR(new Measurement("EUR", "€", "Euro", "eur.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 18.63);
             put("EUR", 1.0);
             put("USD", 1.10);
@@ -24,7 +24,7 @@ public enum Coins implements Enumerable {
             put("JPY", 158.56);
             put("KRW", 1458.27);
         }}), USD(new Measurement("USD", "$", "Dólar estadounidense", "usa.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 17.01);
             put("EUR", 0.91);
             put("USD", 1.0);
@@ -32,7 +32,7 @@ public enum Coins implements Enumerable {
             put("JPY", 144.73);
             put("KRW", 1330.60);
         }}), GBP(new Measurement("GBP", "£", "Libra esterlina", "uk.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 21.59);
             put("EUR", 1.16);
             put("USD", 1.27);
@@ -40,7 +40,7 @@ public enum Coins implements Enumerable {
             put("JPY", 183.85);
             put("KRW", 1689.60);
         }}), JPY(new Measurement("JPY", "¥", "Yen japonés", "japan.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 0.12);
             put("EUR", 0.0063);
             put("USD", 0.0069);
@@ -48,7 +48,7 @@ public enum Coins implements Enumerable {
             put("JPY", 1.0);
             put("KRW", 9.19);
         }}), KRW(new Measurement("KRW", "₩", "Won surcoreano", "kor.png"),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("MXN", 0.013);
             put("EUR", 0.00069);
             put("USD", 0.00075);

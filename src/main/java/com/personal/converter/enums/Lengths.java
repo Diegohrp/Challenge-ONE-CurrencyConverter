@@ -7,7 +7,8 @@ import java.util.HashMap;
 
 public enum Lengths implements Enumerable {
 
-    m(new Measurement("m", "m", "Metros", ""), new HashMap<String, Double>() {{
+    m(new Measurement("m", "m", "Metros", ""),
+        new HashMap<>() {{
         put("m", 1.0);
         put("cm", 100.0);
         put("km", 0.001);
@@ -16,7 +17,7 @@ public enum Lengths implements Enumerable {
         put("ft", 3.28084);
         put("yd", 1.0936133333333);
     }}), cm(new Measurement("cm", "cm", "Centímetros", ""),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("m", 0.01);
             put("cm", 1.0);
             put("km", 1e-5);
@@ -25,7 +26,7 @@ public enum Lengths implements Enumerable {
             put("ft", 0.0328084);
             put("yd", 0.0109361);
         }}), km(new Measurement("km", "km", "Kilómetros", ""),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("m", 1000.0);
             put("cm", 100000.0);
             put("km", 1.0);
@@ -34,7 +35,7 @@ public enum Lengths implements Enumerable {
             put("ft", 3280.84);
             put("yd", 1093.61);
         }}), mm(new Measurement("mm", "mm", "Milímetros", ""),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("m", 0.001);
             put("cm", 0.1);
             put("km", 1e-6);
@@ -43,7 +44,7 @@ public enum Lengths implements Enumerable {
             put("ft", 0.00328084);
             put("yd", 0.00109361);
         }}), mi(new Measurement("mi", "mi", "Millas", ""),
-        new HashMap<String, Double>() {{
+        new HashMap<>() {{
             put("m", 1609.34);
             put("cm", 160934.0);
             put("km", 1.60934);
@@ -51,7 +52,8 @@ public enum Lengths implements Enumerable {
             put("mi", 1.0);
             put("ft", 5280.0);
             put("yd", 1760.0);
-        }}), ft(new Measurement("ft", "ft", "Pies", ""), new HashMap<String, Double>() {{
+        }}), ft(new Measurement("ft", "ft", "Pies", ""),
+        new HashMap<>() {{
         put("m", 0.3048);
         put("cm", 30.48);
         put("km", 0.0003048);
@@ -59,7 +61,8 @@ public enum Lengths implements Enumerable {
         put("mi", 0.000189394);
         put("ft", 1.0);
         put("yd", 0.333333);
-    }}), yd(new Measurement("yd", "yd", "Yardas", ""), new HashMap<String, Double>() {{
+    }}), yd(new Measurement("yd", "yd", "Yardas", ""),
+        new HashMap<>() {{
         put("m", 0.9144);
         put("cm", 91.44);
         put("km", 0.0009144);

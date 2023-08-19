@@ -9,23 +9,19 @@ import java.text.DecimalFormat;
 public class Utils {
 
     public static String formatDouble(double num, int decimals){
-        DecimalFormat format = new DecimalFormat((num < 1 ? "0." : "#.") + "0".repeat(decimals));
+        DecimalFormat format = new DecimalFormat(
+            (num < 1 ? "0." : "#.") + "0".repeat(decimals));
         return format.format(num);
     }
 
     public static boolean validatePositiveDecimal(String txt){
+        System.out.println("Positive decimal: " + txt);
         return txt.matches("^[0-9]+(\\.[0-9]+)?$") && txt.length() < 12;
     }
 
-    public static void validateTextField(boolean isValid, Label errorLabel, HBox textContainer, Button convertBtn){
-        if (isValid) {
-            errorLabel.setText("");
-            textContainer.setStyle("-fx-border-color:#d1d1d1;");
-            convertBtn.setDisable(false);
-        } else {
-            errorLabel.setText("Introduce un número válido");
-            textContainer.setStyle("-fx-border-color:red;");
-            convertBtn.setDisable(true);
-        }
+    public static boolean validateDecimal(String txt){
+        System.out.println("Decimal: " + txt);
+        return txt.matches("^-?[0-9]+(\\.[0-9]+)?$") && txt.length() < 12;
     }
+
 }

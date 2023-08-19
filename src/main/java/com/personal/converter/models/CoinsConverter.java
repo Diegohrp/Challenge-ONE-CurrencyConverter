@@ -5,18 +5,15 @@ import com.personal.converter.utils.Utils;
 
 public class CoinsConverter extends Converter {
 
-
-    public CoinsConverter(Measurement coin){
-        this.initInOut(coin);
-    }
-
-    @Override public String getEquivalenceMsg(){
+    @Override
+    public String getEquivalenceMsg(){
         return this.getInput().getSymbol() + " 1 " + this.getInput().getId() + " = " +
             this.getOutput().getSymbol() + " " + this.getEquivalence() + " " +
             this.getOutput().getId();
     }
 
-    @Override public String getResultMsg(){
+    @Override
+    public String getResultMsg(){
         return this.getInput().getSymbol() + " " +
             Utils.formatDouble(this.getInput().getValue(), 2) + " " +
             this.getInput().getId() + " = " + this.getOutput().getSymbol() + " " +
@@ -24,7 +21,8 @@ public class CoinsConverter extends Converter {
             this.getOutput().getId();
     }
 
-    @Override public void setEquivalence(String from, String to){
+    @Override
+    public void setEquivalence(String from, String to){
         super.setEquivalence(Coins.valueOf(from).getEquivalence(to));
     }
 }
