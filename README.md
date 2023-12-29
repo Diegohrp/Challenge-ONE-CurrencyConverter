@@ -97,7 +97,7 @@ This project is under the MIT License
 
 
 ## Authors
-This project was developed by Diego Herrera Prado [@Diegohrp](https://github.com/Diegohrp/Challenge-ONE-CurrencyConverter) as part of a challenge from the Oracle One Education program.
+This project was developed by Diego Herrera Prado [@Diegohrp](https://github.com/Diegohrp/Challenge-ONE-CurrencyConverter) as part of a challenge from the Oracle Next Education program.
 
 Feel free to reach out if you have any suggestion or if you want to work with me 😀.
 
